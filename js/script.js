@@ -47,17 +47,39 @@ createApp({
 
   methods: {
 
+    autoPlay() {
+        setInterval(() => {
+          this.nextImage();
+        }, 3000);
+      },
+    
+
     nextImage() {
         this.tabIndex = (this.tabIndex + 1) % this.slides.length;
     },
     prevImage() {
         this.tabIndex = (this.tabIndex - 1 + this.slides.length) % this.slides.length;
     
-    }
+    },
+
+
+    setTabIndex(index) {
+        this.tabIndex = index ;
+    },
 
 
 
+
+
+},
+
+// autoPlay messo fuori per farlo partire automaticamente, dopo la generazione degli elementi nel DOM
+
+created() {
+    this.autoPlay();
+  
   }
+
 
 
 
